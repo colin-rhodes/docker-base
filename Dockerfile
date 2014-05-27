@@ -12,7 +12,11 @@ RUN apt-get purge -yf sudo
 RUN apt-get purge -yq $(dpkg-query -Wf '${Package;-40}${Priority}\n' | \
     awk '$2 ~ /optional|extra/ { print $1 }')
 
-RUN apt-get autoremove
-RUN apt-get install sudo
+RUN umask 0022;echo 'APT::Install-Recommends "0";' | \
+    tee /etc/apt/apt.conf.d/00DisableInstallRecommends
+RUN apt-get -yq autoremove
+RUN apt-get -yq update
+RUN apt-get -yq upgrade
+RUN apt-get -yq install sudo
 
 CMD ["/bin/bash"]
