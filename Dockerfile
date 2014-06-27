@@ -1,6 +1,6 @@
 #
 # Base Dockerfile
-# Installs some basic requirements for services running under ubuntu
+# Tweaks the main ubuntu:14.04 image
 #
 
 FROM ubuntu:14.04
@@ -14,8 +14,7 @@ RUN umask 0022;echo 'APT::Install-Recommends "0";' | \
 
 RUN \
 	apt-get -yq update && \
- 	apt-get -yq upgrade && \
-	apt-get -yq install socat && \
+ 	apt-get -yq dist-upgrade && \
 	apt-get -yq autoremove && \
 	apt-get -yq clean && \
 	apt-get -yq autoclean
