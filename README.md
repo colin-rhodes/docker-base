@@ -1,1 +1,1 @@
-Installs some basic requirements for services running under ubuntu
+Tweaks the main ubuntu:14.04 image

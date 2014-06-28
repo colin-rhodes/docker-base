@@ -13,8 +13,8 @@ RUN umask 0022;echo 'APT::Install-Recommends "0";' | \
     tee /etc/apt/apt.conf.d/00DisableInstallRecommends
 
 RUN \
-	apt-get -yq update && \
- 	apt-get -yq dist-upgrade && \
-	apt-get -yq autoremove && \
-	apt-get -yq clean && \
-	apt-get -yq autoclean
+    apt-get -yq update && \
+    apt-get -yq dist-upgrade && \
+    apt-get -yq autoremove && \
+    apt-get -yq clean && \
+    apt-get -yq autoclean
